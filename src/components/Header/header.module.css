@@ -1,7 +1,7 @@
 .header_container {
   background-color: #131921;
   display: flex;
-  gap: 8px;
+  gap: 35px;
   align-items: center;
   color: white;
   height: 62px;
@@ -98,15 +98,19 @@
   margin-left: -20px;
 }
 .language_signIn p {
-  font-size: 12px;
+  font-size: 0.8vw;
 }
 .cart span {
+  vertical-align: middle;
+  font-size: 1.2vw;
   margin-right: 20px;
   font-weight: bold;
-  top: 0px;
   background-color: #1a1a1a;
   left: 16px;
   color: #ffa500;
+}
+.cart_svg {
+  font-size: 2vw;
 }
 .order_container a:hover,
 .delivery:hover,

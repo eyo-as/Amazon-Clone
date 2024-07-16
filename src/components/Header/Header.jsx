@@ -65,7 +65,7 @@ const Header = () => {
 
             {/* cart */}
             <a href="" className={classes.cart}>
-              <BiCart />
+              <BiCart className={classes.cart_svg} />
               <span>0</span>
             </a>
           </>
