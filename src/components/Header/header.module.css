@@ -1,4 +1,4 @@
-.header_container {
+/* .header_container {
   background-color: #131921;
   display: flex;
   gap: 35px;
@@ -167,4 +167,34 @@
   .language {
     display: none;
   }
+} */
+
+.header_container {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  background-color: #131921;
+  color: white;
+  height: 60px;
+  vertical-align: middle;
+}
+.logo_container {
+  display: flex;
+  margin: 2vw;
+  width: 25%;
+}
+.logo_container img {
+  width: 58%;
+  margin: 2vh;
+}
+.logo_img {
+  margin: 5px;
+}
+.search {
+  display: flex;
+  width: 48%;
+}
+.order_container {
+  display: flex;
+  width: 35%;
 }

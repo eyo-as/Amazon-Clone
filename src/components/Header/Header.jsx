@@ -14,15 +14,15 @@ const Header = () => {
         {/* logo */}
         <div className={classes.logo_container}>
           <a href="#">
-            <img src={logo} alt="amazon logo" />
+            <img src={logo} className={classes.logo_img} alt="amazon logo" />
           </a>
           <div className={classes.delivery}>
-            <span>
-              <SlLocationPin />
-            </span>
             <div>
               <p>Delivered to</p>
-              <span>Ethiopia</span>
+              <span>
+                <SlLocationPin />
+                Ethiopia
+              </span>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Header = () => {
           {/* img and language */}
 
           <a href="#" className={classes.language}>
-            <img src={flag} alt="" />
+            {/* <img src={flag} alt="" /> */}
             <select name="" id="">
               <option value="">EN</option>
             </select>
