@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../currency-format/CurrencyFormat";
 import classes from "./product.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import { DataContext } from "../dataProvider/DataProvider";
+import { Type } from "../../utils/action.type";
 
 const ProductCard = ({ product, flex, renderDesc }) => {
   let { image, title, id, rating, price, description } = product;
-  console.log(product);
+
+  let [state, dispatch] = useContext(DataContext);
+  // console.log(state);
+
+  let addToCart = () => {
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item: {
+        image,
+        title,
+        id,
+        rating,
+        price,
+        description,
+      },
+    });
+  };
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -35,7 +53,9 @@ const ProductCard = ({ product, flex, renderDesc }) => {
           <div className={classes.price}>
             <CurrencyFormat amount={price} />
           </div>
-          <button className={classes.button}>add to cart</button>
+          <button className={classes.button} onClick={addToCart}>
+            add to cart
+          </button>
         </div>
       </div>
     </div>
