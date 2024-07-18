@@ -5,21 +5,27 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { productUrl } from "../../Api/endPoints";
 import ProductCard from "../../components/products/ProductCard";
+import Loader from "../../components/loader/Loader";
 
 const Result = () => {
   const { categoryName } = useParams();
   console.log(categoryName);
   let [results, setResults] = useState([]);
+  let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
         setResults(res.data);
+        setIsLoading(false);
         console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
+        isLoading(false);
       });
   }, []);
 
@@ -30,8 +36,10 @@ const Result = () => {
         <p style={{ padding: "30px" }}>Category / {categoryName}</p>
         <hr />
         <div className={classes.product_container}>
-          {Array.isArray(results) && results.length > 0 ? (
-            results.map((item, i) => <ProductCard product={item} key={i} />)
+          {isLoading ? (
+            <Loader />
+          ) : Array.isArray(results) && results.length > 0 ? (
+            results?.map((item, i) => <ProductCard product={item} key={i} />)
           ) : (
             <p>No results found.</p>
           )}

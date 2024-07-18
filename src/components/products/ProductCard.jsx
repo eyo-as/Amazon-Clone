@@ -23,8 +23,8 @@ const ProductCard = ({ product }) => {
             {truncate(product?.title, 40)}
           </h3>
           <div className={classes.rating}>
-            <Rating value={rating.rate} precision={0.1} />
-            <small>{rating.count}</small>
+            <Rating value={rating?.rate} precision={0.1} />
+            <small>{rating?.count}</small>
           </div>
           <div className={classes.price}>
             <CurrencyFormat amount={price} />
