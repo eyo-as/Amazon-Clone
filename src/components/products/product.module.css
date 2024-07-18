@@ -49,7 +49,7 @@
     font-size: 2vw;
   }
   .rating {
-    padding: 0 10px;
+    padding: 0;
   }
   .price {
     padding: 8px 10px;
@@ -69,7 +69,7 @@
     margin: 20px auto !important;
   }
   .card_container_title {
-    font-size: 1.2em;
+    font-size: 1.4vw;
   }
 }
 
@@ -91,6 +91,9 @@
   }
   .rating {
     padding: 0 10px;
+  }
+  .rating span {
+    font-size: 2vw;
   }
   .price {
     padding: 8px 10px;
