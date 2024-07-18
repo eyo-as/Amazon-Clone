@@ -39,7 +39,9 @@ const Result = () => {
           {isLoading ? (
             <Loader />
           ) : Array.isArray(results) && results.length > 0 ? (
-            results?.map((item, i) => <ProductCard product={item} key={i} />)
+            results?.map((item, i) => (
+              <ProductCard product={item} key={i} renderAdd={true} />
+            ))
           ) : (
             <p>No results found.</p>
           )}

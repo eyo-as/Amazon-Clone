@@ -28,7 +28,7 @@ const Product = () => {
         <Loader />
       ) : (
         products.map((items, i) => {
-          return <ProductCard product={items} key={i} />;
+          return <ProductCard product={items} key={i} renderAdd={true} />;
         })
       )}
     </section>
