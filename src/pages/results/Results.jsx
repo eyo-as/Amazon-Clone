@@ -30,9 +30,11 @@ const Result = () => {
         <p style={{ padding: "30px" }}>Category / {categoryName}</p>
         <hr />
         <div className={classes.product_container}>
-          {results?.map((items, i) => {
-            return <ProductCard product={items} key={i} />;
-          })}
+          {Array.isArray(results) && results.length > 0 ? (
+            results.map((item, i) => <ProductCard product={item} key={i} />)
+          ) : (
+            <p>No results found.</p>
+          )}
         </div>
       </section>
     </Layout>

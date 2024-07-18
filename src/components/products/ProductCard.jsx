@@ -3,6 +3,7 @@ import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../currency-format/CurrencyFormat";
 import classes from "./product.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   let { image, title, id, rating, price } = product;
@@ -14,9 +15,9 @@ const ProductCard = ({ product }) => {
   return (
     <div className={`${classes.card_container}`}>
       <div>
-        <a href="">
+        <Link to={`${id}`}>
           <img src={image} alt="" />
-        </a>
+        </Link>
         <div>
           <h3 className={classes.card_container_title}>
             {truncate(product?.title, 40)}
