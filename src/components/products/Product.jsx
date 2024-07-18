@@ -10,7 +10,7 @@ const Product = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        //   console.log(res);
+        console.log(res.data);
         setProducts(res.data);
       })
       .catch((err) => {
@@ -20,7 +20,7 @@ const Product = () => {
   return (
     <section className={`${classes.product_container} `}>
       {products.map((items, i) => {
-        return <ProductCard data={items} key={i} />;
+        return <ProductCard product={items} key={i} />;
       })}
     </section>
   );

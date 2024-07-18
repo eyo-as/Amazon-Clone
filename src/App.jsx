@@ -1,16 +1,10 @@
 import React from "react";
-import Header from "./components/Header/Header";
-import Carsoule from "./components/Carsoule/Carsoule";
-import Catagory from "./components/catagory/Catagory";
-import Product from "./components/products/Product";
+import Routing from "./Router";
 
 const App = () => {
   return (
     <>
-      {/* <Header /> */}
-      <Carsoule />
-      <Catagory />
-      <Product />
+      <Routing />
     </>
   );
 };

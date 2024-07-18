@@ -4,8 +4,8 @@ import CurrencyFormat from "../currency-format/CurrencyFormat";
 import classes from "./product.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ProductCard = ({ data }) => {
-  let { image, title, id, rating, price } = data;
+const ProductCard = ({ product }) => {
+  let { image, title, id, rating, price } = product;
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -19,9 +19,8 @@ const ProductCard = ({ data }) => {
         </a>
         <div>
           <h3 className={classes.card_container_title}>
-            {truncate(data?.title, 40)}
+            {truncate(product?.title, 40)}
           </h3>
-          {/* <h3>{title}</h3> */}
           <div className={classes.rating}>
             <Rating value={rating.rate} precision={0.1} />
             <small>{rating.count}</small>
