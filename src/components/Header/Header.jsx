@@ -11,9 +11,9 @@ import { DataContext } from "../dataProvider/DataProvider";
 
 const Header = () => {
   let [{ basket }, dispatch] = useContext(DataContext);
-  console.log(basket.length);
+  // console.log(basket.length);
   return (
-    <>
+    <section className={classes.fixed}>
       <section className={classes.header_container}>
         {/* logo */}
         <div className={classes.logo_container}>
@@ -76,7 +76,7 @@ const Header = () => {
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
 };
 
