@@ -32,7 +32,9 @@ const ProductDetail = () => {
         {isLoading ? (
           <Loader />
         ) : Array.isArray(detail) && detail.length > 0 ? (
-          detail.map((item, i) => <ProductCard product={item} key={i} />)
+          detail.map((item, i) => (
+            <ProductCard product={item} key={i} flex={true} renderDesc={true} />
+          ))
         ) : (
           <p>No results found.</p>
         )}
