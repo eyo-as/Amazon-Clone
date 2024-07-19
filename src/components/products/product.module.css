@@ -32,6 +32,9 @@
   bottom: 0;
   left: 0;
 }
+.product_fixed {
+  display: flex;
+}
 
 @media screen and (min-width: 576px) {
   .product_container {
@@ -60,12 +63,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1px;
-    width: 82%;
+    width: 98%;
     margin: 15px auto;
     justify-content: space-between;
   }
   .card_container {
-    width: 18% !important;
+    width: 23% !important;
+    height: 372px !important;
     margin: 20px auto !important;
   }
   .card_container_title {
@@ -117,7 +121,7 @@
   margin-right: 40px;
 }
 .product_fixed {
-  height: 50vh;
+  height: auto !important;
 }
 .product_fixed img {
   width: 300px !important;

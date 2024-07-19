@@ -9,17 +9,21 @@ import Loader from "../../components/loader/Loader";
 
 const Result = () => {
   const { categoryName } = useParams();
-  console.log(categoryName);
+  // console.log(categoryName);
   let [results, setResults] = useState([]);
   let [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
 
+    console.log(
+      `${productUrl}/products/category/${categoryName.toLowerCase()}`
+    );
+
     axios
-      .get(`${productUrl}/products/category/${categoryName}`)
+      .get(`${productUrl}/products/category/${categoryName.toLowerCase()}`)
       .then((res) => {
-        setResults(res.data);
+        setResults(res?.data);
         setIsLoading(false);
         console.log(res.data);
       })

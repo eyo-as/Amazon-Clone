@@ -44,6 +44,7 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
         <div>
           <h3 className={classes.card_container_title}>
             {truncate(product?.title, 40)}
+            {/* {title} */}
           </h3>
           {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
           <div className={classes.rating}>

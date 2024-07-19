@@ -12,6 +12,10 @@ import { DataContext } from "../dataProvider/DataProvider";
 const Header = () => {
   let [{ basket }, dispatch] = useContext(DataContext);
   // console.log(basket.length);
+  let totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+
   return (
     <section className={classes.fixed}>
       <section className={classes.header_container}>
@@ -22,11 +26,9 @@ const Header = () => {
           </Link>
           <div className={classes.delivery}>
             <div>
-              <p>Delivered to</p>
-              <span>
-                <SlLocationPin />
-                Ethiopia
-              </span>
+              <p className={classes.delivery_p}>Delivered to</p>
+              <span>{/* <SlLocationPin /> */}</span>
+              <span>Ethiopia</span>
             </div>
           </div>
         </div>
@@ -45,7 +47,7 @@ const Header = () => {
           {/* img and language */}
 
           <Link to="#" className={classes.language}>
-            {/* <img src={flag} alt="" /> */}
+            <img src={flag} alt="" />
             <select name="" id="">
               <option value="">EN</option>
             </select>
@@ -55,10 +57,8 @@ const Header = () => {
           <>
             {/* sign in */}
             <Link to="/signIn" className={classes.language_signIn}>
-              <>
-                <p>Hello, sign in</p>
-                <span>Account & Lists</span>
-              </>
+              <p>Hello, sign in</p>
+              <span>Account & Lists</span>
             </Link>
 
             {/* orders */}
@@ -70,7 +70,7 @@ const Header = () => {
             {/* cart */}
             <Link to="/cart" className={classes.cart}>
               <BiCart className={classes.cart_svg} />
-              <span>{basket.length}</span>
+              <span>{totalItem}</span>
             </Link>
           </>
         </div>

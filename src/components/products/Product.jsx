@@ -25,7 +25,7 @@ const Product = () => {
   return (
     <section className={`${classes.product_container} `}>
       {isLoading ? (
-        <Loader />
+        <Loader className={classes.loader} />
       ) : (
         products.map((items, i) => {
           return <ProductCard product={items} key={i} renderAdd={true} />;

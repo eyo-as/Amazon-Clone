@@ -10,42 +10,55 @@ import Loader from "../../components/loader/Loader";
 const ProductDetail = () => {
   let { productId } = useParams();
   // console.log(productId);
-  let [detail, setDetails] = useState([]);
+  let [product, setProduct] = useState([]);
+  // console.log(product);
   let [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
+
+    console.log(`${productUrl}/products/${productId}`);
+
     axios
       .get(`${productUrl}/products/${productId}`)
       .then((res) => {
-        setDetails(res.data);
+        setProduct(res.data.id);
         setIsLoading(false);
         console.log(res);
       })
       .catch((err) => {
         console.log(err);
-        setIsLoading(false);
+        isLoading(false);
       });
   }, []);
   return (
     <Layout>
       <div>
+        {/* <div>
+          {isLoading ? (
+            <Loader />
+          ) : Array.isArray(product) && product.length > 0 ? (
+            product?.map((item, i) => (
+              <ProductCard product={item} key={i} renderAdd={true} />
+            ))
+          ) : (
+            <p>No results found.</p>
+          )}
+        </div> */}
+        {/* ************* */}
+        {/* {Array.isArray(product) && product.length > 0 ? (
+          product?.map((item, i) => {
+            return <ProductCard product={item} key={i} renderAdd={true} />;
+          })
+        ) : (
+          <p>No result Found</p>
+        )} */}
         {isLoading ? (
           <Loader />
-        ) : Array.isArray(detail) && detail.length > 0 ? (
-          detail.map((item, i) => (
-            <ProductCard
-              product={item}
-              key={i}
-              flex={true}
-              renderDesc={true}
-              renderAdd={true}
-            />
-          ))
         ) : (
-          <p>No results found.</p>
+          <ProductCard product={product} renderAdd={true} />
         )}
       </div>
-      ;
     </Layout>
   );
 };
