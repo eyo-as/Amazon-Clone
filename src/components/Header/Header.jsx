@@ -8,9 +8,10 @@ import logo from "../../assets/images/amazon_PNG11.png";
 import flag from "../../assets/images//Flag_of_the_United_States.png";
 import LowerHeader from "./LowerHeader";
 import { DataContext } from "../dataProvider/DataProvider";
+import { auth } from "../../utils/firebase";
 
 const Header = () => {
-  let [{ basket }, dispatch] = useContext(DataContext);
+  let [{ user, basket }, dispatch] = useContext(DataContext);
   // console.log(basket.length);
   let totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -27,8 +28,12 @@ const Header = () => {
           <div className={classes.delivery}>
             <div>
               <p className={classes.delivery_p}>Delivered to</p>
-              <span>{/* <SlLocationPin /> */}</span>
-              <span>Ethiopia</span>
+              <div className={classes.location}>
+                <span>
+                  <SlLocationPin size={12} />
+                </span>
+                <span>Ethiopia</span>
+              </div>
             </div>
           </div>
         </div>
@@ -56,9 +61,18 @@ const Header = () => {
           {/* three component */}
           <>
             {/* sign in */}
-            <Link to="/signIn" className={classes.language_signIn}>
-              <p>Hello, sign in</p>
-              <span>Account & Lists</span>
+            <Link to={!user && "/auth"} className={classes.language_signIn}>
+              {user ? (
+                <>
+                  <p>Hello, {user?.email.split("@")[0]}</p>
+                  <span onClick={() => auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello, Sign In</p>
+                  <span>Account & List</span>
+                </>
+              )}
             </Link>
 
             {/* orders */}

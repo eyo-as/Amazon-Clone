@@ -1,7 +1,7 @@
 .header_container {
   background-color: #131921;
   display: flex;
-  gap: 35px;
+  gap: 25px;
   align-items: center;
   color: white;
   height: 62px;
@@ -19,9 +19,12 @@
   padding: 0;
   width: 200px;
 }
+.logo_container a {
+  margin: 0 auto;
+}
 .logo_container img {
-  width: 85%;
-  padding-top: 6px;
+  width: 80%;
+  padding-top: 8px;
   vertical-align: middle;
 }
 .delivery {
@@ -35,6 +38,11 @@
   font-size: 0.68em;
   margin-bottom: 0px !important;
   opacity: 0.8;
+}
+.location {
+  display: flex;
+  gap: 2px;
+  margin-left: -11px;
 }
 .search {
   display: flex;
@@ -97,12 +105,13 @@
 .language img {
   width: 40%;
 }
-.language_signIn {
-  margin-left: -20px;
-}
 .language_signIn p {
   margin-bottom: 0px !important;
-  font-size: 1vw;
+  font-size: 12px;
+}
+.signin {
+  display: flex;
+  flex-direction: row;
 }
 .cart span {
   vertical-align: middle;
