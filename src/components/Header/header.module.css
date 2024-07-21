@@ -21,9 +21,10 @@
 }
 .logo_container a {
   margin: 0 auto;
+  width: 250px;
 }
 .logo_container img {
-  width: 80%;
+  width: 72%;
   padding-top: 8px;
   vertical-align: middle;
 }
@@ -85,8 +86,9 @@
   align-items: center;
   justify-content: space-around;
   max-width: 380px;
-  gap: 10px;
+  gap: 22px;
   font-size: 14px !important;
+  box-sizing: unset;
 }
 .order_container a {
   text-decoration: none;
@@ -95,7 +97,7 @@
 .language {
   width: 86px;
   display: flex;
-  padding: 10px;
+  padding: 10px 0px 10px 10px;
 }
 .language select {
   background-color: #1a1a1a;
