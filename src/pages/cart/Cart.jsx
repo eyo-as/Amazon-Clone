@@ -15,7 +15,7 @@ const Cart = () => {
   let total = basket.reduce((amount, item) => {
     return item.price * item.amount + amount;
   }, 0);
-  console.log(basket);
+  // console.log(basket);
 
   let increment = (item) => {
     dispatch({
@@ -50,6 +50,7 @@ const Cart = () => {
                     renderDesc={true}
                     flex={true}
                     renderTitle={true}
+                    renderAdd={false}
                   />
 
                   <div className={classes.btn_container}>

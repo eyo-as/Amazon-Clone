@@ -5,7 +5,8 @@ export const catagoryImages = [
     description:
       "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
     category: "Women's clothing",
-    image: "https://m.media-amazon.com/images/I/61htx7BUbQL._AC_SY500_.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/914y-KOGBFL._AC_UL480_FMwebp_QL65_.jpg",
     rating: {
       rate: 3.6,
       count: 145,

@@ -121,7 +121,7 @@
   margin-right: 40px;
 }
 .product_fixed {
-  height: auto !important;
+  height: 50vh !important;
 }
 .product_fixed img {
   width: 300px !important;

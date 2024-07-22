@@ -17,14 +17,14 @@ const ProductDetail = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    console.log(`${productUrl}/products/${productId}`);
+    // console.log(`${productUrl}/products/${productId}`);
 
     axios
       .get(`${productUrl}/products/${productId}`)
       .then((res) => {
-        setProduct(res.data.id);
+        setProduct(res.data);
         setIsLoading(false);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -33,32 +33,16 @@ const ProductDetail = () => {
   }, []);
   return (
     <Layout>
-      <div>
-        {/* <div>
-          {isLoading ? (
-            <Loader />
-          ) : Array.isArray(product) && product.length > 0 ? (
-            product?.map((item, i) => (
-              <ProductCard product={item} key={i} renderAdd={true} />
-            ))
-          ) : (
-            <p>No results found.</p>
-          )}
-        </div> */}
-        {/* ************* */}
-        {/* {Array.isArray(product) && product.length > 0 ? (
-          product?.map((item, i) => {
-            return <ProductCard product={item} key={i} renderAdd={true} />;
-          })
-        ) : (
-          <p>No result Found</p>
-        )} */}
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <ProductCard product={product} renderAdd={true} />
-        )}
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ProductCard
+          product={product}
+          flex={true}
+          renderDesc={true}
+          renderAdd={true}
+        />
+      )}
     </Layout>
   );
 };

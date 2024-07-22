@@ -38,8 +38,8 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
       }`}
     >
       <div>
-        <Link to={`${id}`}>
-          <img src={image} alt="" />
+        <Link to={`/products/${id}`}>
+          <img src={image} alt={title} />
         </Link>
         <div>
           <h3 className={classes.card_container_title}>
