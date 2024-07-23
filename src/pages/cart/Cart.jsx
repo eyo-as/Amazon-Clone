@@ -43,9 +43,8 @@ const Cart = () => {
           ) : (
             basket?.map((item, i) => {
               return (
-                <section className={classes.cart_product}>
+                <section className={classes.cart_product} key={i}>
                   <ProductCard
-                    key={i}
                     product={item}
                     renderDesc={true}
                     flex={true}
