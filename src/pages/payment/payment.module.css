@@ -59,3 +59,10 @@
 .payment_details button:hover {
   background-color: var(--primary-shade);
 }
+
+@media screen and (max-width: 768px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
