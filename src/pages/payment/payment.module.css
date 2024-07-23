@@ -60,6 +60,14 @@
   background-color: var(--primary-shade);
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  color: #343434;
+}
+
 @media screen and (max-width: 768px) {
   .flex {
     display: flex;

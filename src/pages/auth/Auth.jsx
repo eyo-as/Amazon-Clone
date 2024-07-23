@@ -17,60 +17,55 @@ const Auth = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [error, setError] = useState("");
-  let [isloading, setIsLoading] = useState({ signin: false, signup: false });
-
-  // console.log(user);
+  let [isLoading, setIsLoading] = useState({ signin: false, signup: false });
 
   let authHandler = async (e) => {
     e.preventDefault();
-    // console.log(e.target.name);
+    const { name } = e.target;
+    // console.log(name);
 
-    if (e.target.name == "signin") {
-      setIsLoading({ ...isloading, signin: true });
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userInfo) => {
-          // console.log(userInfo);
-          dispatch({
-            type: Type.SET_USER,
-            user: userInfo.user,
-          });
-          setIsLoading({
-            ...isloading,
-            signin: false,
-          });
-          navigate("/");
-        })
-        .catch((err) => {
-          // console.log(err.message);
-          setError(err.message);
-          setIsLoading({
-            ...isloading,
-            signup: false,
-          });
+    // console.log("Auth Handler:", { name, email, password });
+
+    if (name === "signin") {
+      setIsLoading({ ...isLoading, signin: true });
+      try {
+        const userInfo = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log("Sign-in Success:", userInfo);
+        dispatch({
+          type: Type.SET_USER,
+          user: userInfo.user,
         });
-    } else {
-      setIsLoading({
-        ...isloading,
-        signup: true,
-      });
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userInfo) => {
-          // console.log(userInfo);
-          dispatch({
-            type: Type.SET_USER,
-            user: userInfo.user,
-          });
-          setIsLoading({ ...isloading, signup: false });
-        })
-        .catch((err) => {
-          // console.log(err);
-          setError(err.message);
-          setIsLoading({
-            ...isloading,
-            signup: false,
-          });
-          useNavigate("/");
+        setIsLoading({ ...isLoading, signin: false });
+        navigate("/");
+      } catch (err) {
+        console.error("Sign-in Error:", err);
+        setError(err.message);
+        setIsLoading({ ...isLoading, signin: false });
+      }
+    } else if (name === "signup") {
+      setIsLoading({ ...isLoading, signup: true });
+      try {
+        const userInfo = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log("Sign-up Success:", userInfo);
+        dispatch({
+          type: Type.SET_USER,
+          user: userInfo.user,
         });
+        setIsLoading({ ...isLoading, signup: false });
+        navigate("/");
+      } catch (err) {
+        console.error("Sign-up Error:", err);
+        setError(err.message);
+        setIsLoading({ ...isLoading, signup: false });
+      }
     }
   };
 
@@ -83,7 +78,7 @@ const Auth = () => {
       <div className={classes.login_container}>
         <h1>Sign-In</h1>
 
-        <form action="">
+        <form>
           <div>
             <label htmlFor="email">Email:</label>
             <input
@@ -108,7 +103,7 @@ const Auth = () => {
             name="signin"
             className={classes.login_signIn_btn}
           >
-            {isloading.signin ? <ClipLoader /> : "Sign In"}
+            {isLoading.signin ? <ClipLoader /> : "Sign In"}
           </button>
         </form>
 
@@ -124,7 +119,7 @@ const Auth = () => {
           name="signup"
           className={classes.login_register_btn}
         >
-          {isloading.signup ? <ClipLoader /> : "Create your Amazon Account"}
+          {isLoading.signup ? <ClipLoader /> : "Create your Amazon Account"}
         </button>
 
         {error && (
