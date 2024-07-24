@@ -3,7 +3,7 @@ import { DataContext } from "../dataProvider/DataProvider";
 import { useNavigate } from "react-router";
 
 const ProtectedRoute = ({ children, msg, redirect }) => {
-  const [{ user }, dispatch] = useContext(DataContext);
+  const [{ user }] = useContext(DataContext);
 
   const navigate = useNavigate();
 
