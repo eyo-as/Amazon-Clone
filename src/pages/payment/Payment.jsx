@@ -10,9 +10,10 @@ import { ClipLoader } from "react-spinners";
 import { db } from "../../utils/firebase";
 import { useNavigate } from "react-router";
 import { doc, setDoc, collection } from "firebase/firestore";
+import { Type } from "../../utils/action.type";
 
 const Payment = () => {
-  const [{ user, basket }] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -75,6 +76,10 @@ const Payment = () => {
       } catch (error) {
         console.log(error);
       }
+
+      // empty the basket
+
+      dispatch({ type: Type.EMPTY_BASKET });
 
       setIsLoading(false);
 
