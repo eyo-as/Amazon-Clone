@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from "../../components/dataProvider/DataProvider";
 import classes from "./signIn.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase";
 import {
   signInWithEmailAndPassword,
@@ -12,7 +12,9 @@ import { ClipLoader } from "react-spinners";
 
 const Auth = () => {
   const [{ user }, dispatch] = useContext(DataContext);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const navStateData = useLocation();
+  console.log(navStateData);
 
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -40,7 +42,8 @@ const Auth = () => {
           user: userInfo.user,
         });
         setIsLoading({ ...isLoading, signin: false });
-        navigate("/");
+
+        navigate(navStateData?.state?.redirect || "/");
       } catch (err) {
         console.error("Sign-in Error:", err);
         setError(err.message);
@@ -60,7 +63,8 @@ const Auth = () => {
           user: userInfo.user,
         });
         setIsLoading({ ...isLoading, signup: false });
-        navigate("/");
+
+        navigate(navStateData?.state?.redirect || "/");
       } catch (err) {
         console.error("Sign-up Error:", err);
         setError(err.message);
@@ -77,6 +81,19 @@ const Auth = () => {
 
       <div className={classes.login_container}>
         <h1>Sign-In</h1>
+
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateData?.state?.msg}
+          </small>
+        )}
 
         <form>
           <div>
