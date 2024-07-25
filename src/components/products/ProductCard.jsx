@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../dataProvider/DataProvider";
 import { Type } from "../../utils/action.type";
 
-const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
+const ProductCard = ({ product, flex, renderDesc, renderAdd, renderTitle }) => {
   let { image, title, id, rating, price, description } = product;
 
   let [state, dispatch] = useContext(DataContext);
@@ -34,33 +34,35 @@ const ProductCard = ({ product, flex, renderDesc, renderAdd }) => {
   return (
     <div
       className={`${classes.card_container} ${
-        flex ? classes.product_fixed : ""
+        flex ? classes.product_flexed : ""
       }`}
     >
+      <Link to={`/products/${id}`}>
+        <img src={image} alt={title} />
+      </Link>
       <div>
-        <Link to={`/products/${id}`}>
-          <img src={image} alt={title} />
-        </Link>
-        <div>
-          <h3 className={classes.card_container_title}>
-            {truncate(product?.title, 40)}
-            {/* {title} */}
-          </h3>
-          {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
-          <div className={classes.rating}>
-            <Rating value={rating?.rate} precision={0.1} />
-            <small>{rating?.count}</small>
-          </div>
-          <div className={classes.price}>
-            <CurrencyFormat amount={price} />
-          </div>
-
-          {renderAdd && (
-            <button className={classes.button} onClick={addToCart}>
-              add to cart
-            </button>
+        <h3 className={classes.card_container_title}>
+          {renderTitle ? (
+            <span>{truncate(product?.title, 40)}</span>
+          ) : (
+            <span>{title}</span>
           )}
+          {/* {title} */}
+        </h3>
+        {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
+        <div className={classes.rating}>
+          <Rating value={rating?.rate} precision={0.1} />
+          <small>{rating?.count}</small>
         </div>
+        <div className={classes.price}>
+          <CurrencyFormat amount={price} />
+        </div>
+
+        {renderAdd && (
+          <button className={classes.button} onClick={addToCart}>
+            add to cart
+          </button>
+        )}
       </div>
     </div>
   );

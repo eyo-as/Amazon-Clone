@@ -30,7 +30,7 @@ const ProductDetail = () => {
         console.log(err);
         isLoading(false);
       });
-  }, []);
+  }, [productId]);
   return (
     <Layout>
       {isLoading ? (
@@ -41,6 +41,7 @@ const ProductDetail = () => {
           flex={true}
           renderDesc={true}
           renderAdd={true}
+          renderTitle={false}
         />
       )}
     </Layout>

@@ -13,8 +13,6 @@
 }
 .cart_container {
   padding: 20px;
-  /* display: flex;
-  gap: 10px; */
 }
 .card_container h2,
 .card_container h3 {
@@ -26,9 +24,7 @@
 .container div {
   height: auto !important;
 }
-/* .container div:not(.subTotal) {
-  height: auto !important;
-} */
+
 .card_container {
   padding: 20px;
 }
@@ -87,8 +83,3 @@
     order: 1;
   }
 }
-/* @media screen and (max-width: 768px) {
-  .container {
-    display: block;
-  }
-} */

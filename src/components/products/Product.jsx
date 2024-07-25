@@ -13,7 +13,7 @@ const Product = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProducts(res.data);
         setIsLoading(false);
       })
@@ -27,8 +27,15 @@ const Product = () => {
       {isLoading ? (
         <Loader className={classes.loader} />
       ) : (
-        products.map((items, i) => {
-          return <ProductCard product={items} key={i} renderAdd={true} />;
+        products.map((items) => {
+          return (
+            <ProductCard
+              product={items}
+              key={items.id}
+              renderAdd={true}
+              renderTitle={true}
+            />
+          );
         })
       )}
     </section>

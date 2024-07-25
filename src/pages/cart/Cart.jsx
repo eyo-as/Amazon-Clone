@@ -48,7 +48,7 @@ const Cart = () => {
                     product={item}
                     renderDesc={true}
                     flex={true}
-                    renderTitle={true}
+                    renderTitle={false}
                     renderAdd={false}
                   />
 
@@ -89,60 +89,6 @@ const Cart = () => {
             </div>
           )}
         </div>
-
-        {/* <div className={classes.card_container}>
-          <h2>Hello</h2>
-          <h3>Your shoping basket</h3>
-          <hr />
-          {basket?.length == 0 ? (
-            <p>Oops ! No item in your Cart</p>
-          ) : (
-            basket?.map((item, i) => {
-              return (
-                <section className={classes.card_product}>
-                  <ProductCard
-                    key={i}
-                    product={item}
-                    renderDesc={true}
-                    flex={true}
-                    renderAdd={false}
-                  />
-
-                  <div className={classes.btn_container}>
-                    <button
-                      className={classes.btn}
-                      onClick={() => increment(item)}
-                    >
-                      <IoIosArrowUp size={20} />
-                    </button>
-                    <span>{item.amount}</span>
-                    <button
-                      className={classes.btn}
-                      onClick={() => decrement(item.id)}
-                    >
-                      <IoIosArrowDown size={20} />
-                    </button>
-                  </div>
-                </section>
-              );
-            })
-          )}
-        </div>
-
-        {basket?.length !== 0 && (
-          <div className={classes.subTotal}>
-            <div>
-              <p>SubTotal ({basket?.length} items)</p>
-              <CurrencyFormat amount={total} />
-            </div>
-            <span>
-              <input type="checkbox" />
-              <small>This order is contains a gift</small>
-
-              <Link to="/payment">continue to check out</Link>
-            </span>
-          </div>
-        )} */}
       </section>
     </Layout>
   );
