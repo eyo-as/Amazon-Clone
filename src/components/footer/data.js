@@ -29,9 +29,6 @@ const footerData = [
         linkTitle: "Sell products on Amazon",
       },
       {
-        linkTitle: "Sell on Amazon Business",
-      },
-      {
         linkTitle: "Sell apps on Amazon",
       },
       {
@@ -45,9 +42,6 @@ const footerData = [
       },
       {
         linkTitle: "Host an Amazon Hub",
-      },
-      {
-        linkTitle: "›See More Make Money with Us",
       },
     ],
   },
