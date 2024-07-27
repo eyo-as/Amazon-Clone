@@ -205,7 +205,7 @@
     height: 10px;
   }
   .order_container {
-    gap: 70px;
+    gap: 70px !important;
     padding: 2px;
   }
   .lower_container {
