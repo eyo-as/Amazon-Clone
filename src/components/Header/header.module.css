@@ -198,7 +198,7 @@
     position: sticky;
   }
   .header_container {
-    gap: 0px;
+    gap: 4px !important;
   }
   .search {
     width: 90%;
