@@ -195,7 +195,7 @@
 
 @media screen and (max-width: 576px) {
   .fixed {
-    position: sticky;
+    position: relative;
   }
   .header_container {
     gap: 4px !important;
