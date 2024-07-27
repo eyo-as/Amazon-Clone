@@ -55,6 +55,10 @@ a {
   padding: 80px;
 }
 
+.copyright p {
+  font-size: 12px;
+}
+
 .logo_img {
   width: 100px;
   padding-top: 8px;
@@ -66,7 +70,7 @@ a {
 .state {
   border: 2px solid #7c7c75;
   border-radius: 5px;
-  height: auto;
+  height: 40px;
   width: 170px;
   color: #fff;
 }
@@ -80,12 +84,19 @@ a {
 }
 
 @media screen and (max-width: 576px) {
+  .container a {
+    font-size: 12px;
+  }
   .detail_contaier {
     display: flex;
     width: 100%;
     margin: 0 auto;
     padding: 30px 10px;
     gap: 21px;
+  }
+
+  .detail_contaier span {
+    font-size: 14px;
   }
 
   .copyright {
