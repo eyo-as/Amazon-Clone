@@ -106,6 +106,12 @@ a {
     gap: 7px;
   }
 
+  .language,
+  .currency,
+  .state {
+    height: unset;
+  }
+
   .language p,
   .currency p,
   .state p {
