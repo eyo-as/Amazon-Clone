@@ -118,7 +118,8 @@
   height: 50vh !important;
 }
 .product_flexed img {
-  width: 300px !important;
+  width: 200px !important;
+  padding-top: 25px;
   height: auto;
 }
 
